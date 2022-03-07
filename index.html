@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <title>Rabih Harb - Portfolio</title>
+  </head>
+  <body>
+    <main>
+      <section class="intro" id="home">
+        <div class="cont intro-cont">
+          <div class="intro-text flex-col">
+            <h1 class="intro__title">
+              <div class="intro__title-cont">
+                Hello, My name is
+                <span class="intro__title-name">Rabih Harb</span>
+              </div>
+            </h1>
+            <p class="intro__subtitle">Web Developer</p>
+          </div>
+          <div class="intro__languages-slider">
+            <div class="intro__languages-slider-cont flex">
+              <div class="language" data-name="HTML5">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/html5.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/html5.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="CSS3">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/css-3.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/css-3.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="JS">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/js.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/js.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="ReactJS">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/reactjs.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/reactjs.png"
+                    alt="ReactJS logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="NodeJS">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/node-js.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/node-js.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="python">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/python.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/python.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+              <div class="language" data-name="git">
+                <picture>
+                  <source
+                    srcset="./assets/images/desktop/git.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    src="./assets/images/mobile/git.png"
+                    alt="node-js logo"
+                    class="language__logo"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+          <nav class="nav">
+            <button class="nav__btn selected" data-section-id="#home">
+              <span class="nav__btn-text">HOME</span>
+              <span class="nav__btn-upper-text">HOME</span>
+              <span class="nav__btn-lower-text">HOME</span>
+            </button>
+            <button class="nav__btn" data-section-id="#about">
+              <span class="nav__btn-text">ABOUT</span>
+              <span class="nav__btn-upper-text">ABOUT</span>
+              <span class="nav__btn-lower-text">ABOUT</span>
+            </button>
+            <button class="nav__btn" data-section-id="#work">
+              <span class="nav__btn-text">WORK</span>
+              <span class="nav__btn-upper-text">WORK</span>
+              <span class="nav__btn-lower-text">WORK</span>
+            </button>
+          </nav>
+        </div>
+      </section>
+      <section class="about hidden-section" id="about">
+        <div class="about-cont cont">
+          <div class="about-cont">
+            <h1 class="about__title">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </h1>
+            <p class="about-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+              dolore velit ab repellendus eum ullam eveniet rerum vel veniam!
+              Assumenda!s
+            </p>
+          </div>
+          <nav class="nav">
+            <button class="nav__btn" data-section-id="#home">
+              <span class="nav__btn-text">HOME</span>
+              <span class="nav__btn-upper-text">HOME</span>
+              <span class="nav__btn-lower-text">HOME</span>
+            </button>
+            <button class="nav__btn selected" data-section-id="#about">
+              <span class="nav__btn-text">ABOUT</span>
+              <span class="nav__btn-upper-text">ABOUT</span>
+              <span class="nav__btn-lower-text">ABOUT</span>
+            </button>
+            <button class="nav__btn" data-section-id="#work">
+              <span class="nav__btn-text">WORK</span>
+              <span class="nav__btn-upper-text">WORK</span>
+              <span class="nav__btn-lower-text">WORK</span>
+            </button>
+          </nav>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/js/script.js" type="module"></script>
+  </body>
+</html>
