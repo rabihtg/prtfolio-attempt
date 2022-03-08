@@ -153,6 +153,7 @@ section {
 .nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   position: static;
@@ -209,7 +210,7 @@ section {
 }
 @media (min-width: 769px) {
   .nav {
-    place-self: end;
+    justify-content: flex-end;
   }
 }
 /* ------------------------------------------------------------ Intro

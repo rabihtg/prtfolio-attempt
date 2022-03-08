@@ -4,8 +4,9 @@ let sliderPos = {
   x: 0,
 };
 let maxLeft = languageSlider.scrollWidth - languageSlider.clientWidth;
-let step = maxLeft / 1.95;
+let step = 1;
 let hintInterval;
+let hintTimeout;
 
 export { windowResizeHandler, dragSlider, hintSlider, sliderCancelAll };
 
@@ -18,18 +19,17 @@ function dragSlider() {
 }
 function hintSlider() {
   languageSlider.addEventListener("touchstart", clearHintSlider);
-  languageSlider.addEventListener("touchend", hintSlider);
-  hintInterval = window.setInterval(() => {
-    if (languageSlider.scrollLeft >= maxLeft - 10) {
-      step = -1 * (maxLeft / 2);
-    } else if (languageSlider.scrollLeft <= 10) {
-      step = maxLeft / 2;
-    }
-    languageSlider.scrollTo({
-      left: languageSlider.scrollLeft + step,
-      behavior: "smooth",
-    });
-  }, 1500);
+  hintTimeout = window.setTimeout(() => {
+    hintInterval = window.setInterval(() => {
+      step += step > 0 ? 1 : -1;
+      languageSlider.scrollLeft += step;
+      if (languageSlider.scrollLeft >= maxLeft) {
+        step = -1;
+      } else if (languageSlider.scrollLeft == 0) {
+        window.clearInterval(hintInterval);
+      }
+    }, 10);
+  }, 1000);
 }
 function sliderMouseDown(e) {
   clearHintSlider();
@@ -47,7 +47,6 @@ function sliderMouseUp() {
   languageSlider.removeEventListener("mousemove", sliderMouseMove);
   languageSlider.removeEventListener("mouseup", sliderMouseUp);
   languageSlider.classList.remove("mouse-down");
-  hintSlider();
 }
 function sliderMouseMove(e) {
   const dx = (e.clientX - sliderPos.x) * 2;
@@ -56,11 +55,14 @@ function sliderMouseMove(e) {
 
 function clearHintSlider() {
   window.clearInterval(hintInterval);
+  window.clearTimeout(hintTimeout);
 }
 function resetScrollValues() {
   clearHintSlider();
-  maxLeft = languageSlider.scrollWidth - languageSlider.clientWidth;
-  hintSlider();
+  if (hintInterval === undefined) {
+    maxLeft = languageSlider.scrollWidth - languageSlider.clientWidth;
+    hintSlider();
+  }
 }
 
 function sliderCancelAll() {
