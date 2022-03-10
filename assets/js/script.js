@@ -1,18 +1,12 @@
 "use strict";
-import {
-  dragSlider,
-  hintSlider,
-  windowResizeHandler,
-} from "./languageSlider.js";
+const animatedElms = document.querySelectorAll("[data-animated='true'");
+import { dragSlider } from "./languageSlider.js";
 import { sectionSwitcher } from "./change-section.js";
 
-export { setSliderHandler };
-
-function setSliderHandler() {
+window.addEventListener("load", () => {
+  animatedElms.forEach((elm) => {
+    elm.classList.add("animation");
+  });
   dragSlider();
-  hintSlider();
-  windowResizeHandler();
-}
-
-setSliderHandler();
-sectionSwitcher();
+  sectionSwitcher();
+});

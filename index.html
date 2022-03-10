@@ -14,21 +14,38 @@
     <title>Rabih Harb - Portfolio</title>
   </head>
   <body>
+    <noscript style="color: #fff; font-size: 50px">
+      <div class="no-script-disclaimer">
+        <p class="no-script-text">
+          JavaScript is required for the page , Please
+          <a class="no-script-text-underlined" href=".">
+            enable it in your browser settings and refresh the page</a
+          >, or use one that supports it.
+        </p>
+      </div>
+    </noscript>
     <main>
       <section class="intro" id="home">
         <div class="cont intro-cont">
-          <div class="intro-text flex-col">
+          <div class="intro-text flex-col" data-animated="true">
             <h1 class="intro__title">
-              <div class="intro__title-cont">
+              <div class="intro__title-cont" data-animated="true">
                 Hello, My name is
-                <span class="intro__title-name">Rabih Harb</span>
+                <span class="intro__title-name" data-animated="true"
+                  >Rabih Harb</span
+                >
               </div>
             </h1>
-            <p class="intro__subtitle">Web Developer</p>
+            <p class="intro__subtitle" data-animated="true">Web Developer</p>
           </div>
           <div class="intro__languages-slider">
-            <div class="intro__languages-slider-cont flex">
-              <div class="language" data-name="HTML5">
+            <div class="intro__languages-slider-cont flex" tabindex="0">
+              <div
+                class="language"
+                data-animated="true"
+                data-name="HTML5"
+                tabindex="0"
+              >
                 <picture>
                   <source
                     srcset="./assets/images/desktop/html5.png"
@@ -41,7 +58,7 @@
                   />
                 </picture>
               </div>
-              <div class="language" data-name="CSS3">
+              <div class="language" data-animated="true" data-name="CSS3">
                 <picture>
                   <source
                     srcset="./assets/images/desktop/css-3.png"
@@ -54,7 +71,7 @@
                   />
                 </picture>
               </div>
-              <div class="language" data-name="JS">
+              <div class="language" data-animated="true" data-name="JS">
                 <picture>
                   <source
                     srcset="./assets/images/desktop/js.png"
@@ -160,22 +177,30 @@
         </div>
       </section>
       <nav class="nav cont">
-        <button class="nav__btn selected" data-section-id="#home">
+        <button
+          class="nav__btn selected"
+          data-section-id="#home"
+          data-animated="true"
+        >
           <span class="nav__btn-text">HOME</span>
           <span class="nav__btn-upper-text">HOME</span>
           <span class="nav__btn-lower-text">HOME</span>
         </button>
-        <button class="nav__btn" data-section-id="#about">
+        <button class="nav__btn" data-section-id="#about" data-animated="true">
           <span class="nav__btn-text">ABOUT</span>
           <span class="nav__btn-upper-text">ABOUT</span>
           <span class="nav__btn-lower-text">ABOUT</span>
         </button>
-        <button class="nav__btn" data-section-id="#work">
+        <button class="nav__btn" data-section-id="#work" data-animated="true">
           <span class="nav__btn-text">WORK</span>
           <span class="nav__btn-upper-text">WORK</span>
           <span class="nav__btn-lower-text">WORK</span>
         </button>
-        <button class="nav__btn" data-section-id="#contact">
+        <button
+          class="nav__btn"
+          data-section-id="#contact"
+          data-animated="true"
+        >
           <span class="nav__btn-text">CONTACT</span>
           <span class="nav__btn-upper-text">CONTACT</span>
           <span class="nav__btn-lower-text">CONTACT</span>
