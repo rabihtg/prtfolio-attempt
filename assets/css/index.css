@@ -77,7 +77,8 @@ body {
 main {
   --animation-initial-delay: 500ms;
   --animation-delay: calc(var(--animation-initial-delay) + 500ms);
-  padding-block: 2rem 0;
+  padding-block: 4rem;
+  overflow: hidden;
 }
 picture,
 img {
@@ -154,15 +155,14 @@ section {
 /* ------------------------------------------------------------ Nav
 -------------------------------------------------------------------------------------------- */
 .nav {
-  /* height: 20vh; */
   position: relative;
 }
 .nav-items {
   overflow: hidden;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  display: flex;
 }
 .nav__btn {
   transform: translateY(300%);
