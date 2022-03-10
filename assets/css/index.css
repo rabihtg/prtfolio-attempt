@@ -216,13 +216,13 @@ section {
   opacity: 0;
   position: static;
 }
-.nav__btn:hover > .nav__btn-upper-text {
+.nav__btn:not(.selected):hover > .nav__btn-upper-text {
   transform: translate(5px) skew(10deg);
 }
-.nav__btn:hover > .nav__btn-lower-text {
+.nav__btn:not(.selected):hover > .nav__btn-lower-text {
   transform: translate(-5px) skew(10deg);
 }
-.nav__btn:hover::after {
+.nav__btn:not(.selected):hover::after {
   transform: scale(1);
 }
 
