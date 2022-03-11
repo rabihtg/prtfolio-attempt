@@ -18,19 +18,19 @@
   --ff-sans: "Roboto", Arial, sans-serif;
 
   /* Font-size */
-  --ff-900: clamp(1.5rem, 9vw, 2.5rem);
-  --ff-700: clamp(0.85rem, 4vw, 1.5rem);
-  --ff-400: clamp(0.9rem, 8vw, 1.25rem);
-  --ff-200: clamp(0.75rem, 5vw, 0.9rem);
+  --fs-900: clamp(1.5rem, 9vw, 2.5rem);
+  --fs-700: clamp(0.85rem, 4vw, 1.5rem);
+  --fs-400: clamp(0.9rem, 8vw, 1.25rem);
+  --fs-200: clamp(0.75rem, 5vw, 0.9rem);
   /* ------------ Variables */
   --sc-transition: 500ms;
 }
 @media (min-width: 769px) {
   :root {
-    --ff-900: clamp(2.25rem, 5vw, 3rem);
-    --ff-700: 2.5rem;
-    --ff-400: clamp(1rem, 8vw, 1.5rem);
-    --ff-200: clamp(0.875rem, 5vw, 1rem);
+    --fs-900: clamp(2.25rem, 5vw, 3rem);
+    --fs-700: 2.5rem;
+    --fs-400: clamp(1rem, 8vw, 1.5rem);
+    --fs-200: clamp(0.875rem, 5vw, 1rem);
   }
 }
 /* ------------------------------------------------------------ Global
@@ -118,6 +118,18 @@ section {
   overflow: hidden;
   transform: scale(0);
 }
+
+/* remove animation for people who turned it off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 @media (min-width: 769px) {
   section {
     max-height: max(350px, 80vh);
@@ -177,7 +189,7 @@ section {
   border: 0;
   color: hsl(var(--dark-yellow));
   /* letter-spacing: 3px; */
-  font-size: var(--ff-700);
+  font-size: var(--fs-700);
   cursor: pointer;
   position: relative;
 }
@@ -273,7 +285,7 @@ section {
 }
 
 .intro__title {
-  font-size: var(--ff-900);
+  font-size: var(--fs-900);
   color: hsl(var(--dark-yellow), 0.5);
   font-family: var(--ff-cursive);
   text-transform: uppercase;
@@ -314,7 +326,7 @@ section {
 }
 .intro__subtitle {
   padding: 0 0 0.25rem 0.5rem;
-  font-size: var(--ff-700);
+  font-size: var(--fs-700);
   font-weight: 300;
   font-variant: small-caps;
   color: hsl(var(--dark-yellow), 1);
@@ -326,41 +338,30 @@ section {
   align-items: center;
   justify-content: center;
 }
-.intro__typing-text-cont {
-  flex-direction: column;
-  overflow: hidden;
-}
 .intro__typing-text {
+  user-select: none;
+  cursor: text;
   color: var(--clr-accent);
   letter-spacing: 4px;
-  word-spacing: 4px;
   font-variant: small-caps;
   position: relative;
 }
-.intro__typing-text.typing::after {
+.intro__typing-text.intro__typing-text.typing::after,
+.intro__typing-text.intro__typing-text.deleting::after {
   content: "";
   position: absolute;
-  width: 3px;
-  background-color: var(--clr-accent);
+  width: 0.075em;
   height: 100%;
 
+  background-color: var(--clr-accent);
+  right: -0.05em;
+}
+.intro__typing-text.typing::after {
   animation-name: cursor;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: forwards;
   animation-duration: 400ms;
-
-  right: 0;
-  top: 0;
-}
-.intro__typing-text.deleting::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  background-color: var(--clr-accent);
-  height: 100%;
-  right: 0;
-  top: 0;
 }
 @keyframes cursor {
   to {

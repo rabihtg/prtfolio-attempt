@@ -1,19 +1,18 @@
-const animatedTxtContent = ["front-end", "back-end", "ui/ux"];
-
+let typerObj;
 class TxtType {
-  constructor(el, currentWord, period) {
-    this.currentWord = currentWord;
+  constructor(el, loopedText, switchPeriod) {
+    this.loopedText = loopedText;
     this.el = el;
     this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
+    this.switchPeriod = parseInt(switchPeriod, 10) || 2000;
     this.txt = "";
-    this.tick();
+    this.type();
     this.isDeleting = false;
+    this.paused = false;
   }
-  tick() {
-    let i = this.loopNum % this.currentWord.length;
-    let fullTxt = this.currentWord[i];
-
+  type() {
+    let i = this.loopNum % this.loopedText.length;
+    let fullTxt = this.loopedText[i];
     if (this.isDeleting) {
       this.el.classList.remove("typing");
       this.el.classList.add("deleting");
@@ -28,36 +27,45 @@ class TxtType {
 
     this.el.textContent = this.txt;
 
-    let that = this;
-    let delta = 200 - Math.random() * 100;
+    let chStep = 200 - Math.random() * 100;
 
     if (this.isDeleting) {
-      delta /= 2;
+      chStep /= 2;
     }
 
     if (!this.isDeleting && this.txt === fullTxt) {
-      delta = this.period;
+      chStep = this.switchPeriod;
       this.isDeleting = true;
     } else if (this.isDeleting && this.txt === "") {
       this.isDeleting = false;
       this.loopNum++;
-      delta = 500;
+      chStep = 500;
     }
-
-    setTimeout(function () {
-      that.tick();
-    }, delta);
+    if (!this.paused) {
+      this.timeOut = setTimeout(() => {
+        this.type();
+      }, chStep);
+    } else {
+      this.el.textContent = "";
+      this.el.classList.remove("typing");
+      this.el.classList.remove("deleting");
+      clearTimeout(this.timeOut);
+    }
   }
 }
 
 function startTxtType() {
-  let typingTxt = document.querySelectorAll(".intro__typing-text");
+  const typingTxt = document.querySelectorAll(".animated-typing-text"),
+    animatedTxtContent = ["front-end", "back-end", "ui/ux"];
   for (let i = 0; i < typingTxt.length; i++) {
-    let currentWord = animatedTxtContent;
-    let period = 1000;
-    if (currentWord) {
-      new TxtType(typingTxt[i], currentWord, period);
+    let loopedText = animatedTxtContent;
+    let switchPeriod = 1000;
+    if (loopedText) {
+      typerObj = new TxtType(typingTxt[i], loopedText, switchPeriod);
     }
   }
 }
-export { startTxtType };
+function stopTxtType() {
+  typerObj.paused = true;
+}
+export { startTxtType, stopTxtType };
