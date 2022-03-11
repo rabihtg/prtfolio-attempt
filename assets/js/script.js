@@ -2,6 +2,7 @@
 const animatedElms = document.querySelectorAll("[data-animated='true'");
 import { dragSlider } from "./languageSlider.js";
 import { sectionSwitcher } from "./change-section.js";
+import { startTxtType } from "./typing-txt-animator.js";
 
 window.addEventListener("load", () => {
   animatedElms.forEach((elm) => {
@@ -9,4 +10,7 @@ window.addEventListener("load", () => {
   });
   dragSlider();
   sectionSwitcher();
+  window.setTimeout(() => {
+    startTxtType();
+  }, 3000);
 });
