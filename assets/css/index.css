@@ -212,10 +212,11 @@ section {
   content: "";
   position: absolute;
   left: 0;
-  top: calc(45% - 0.05em);
+  top: 45%;
   width: 100%;
   height: 0.05em;
-  transform: scale(0);
+  z-index: 99;
+  transform: scale(0) translateY(-50%);
   transition: transform 200ms ease-in;
   background-color: currentColor;
 }
@@ -243,7 +244,7 @@ section {
   transform: translate(-5px) skew(10deg);
 }
 .nav__btn:not(.selected):hover::after {
-  transform: scale(1);
+  transform: scale(1) translateY(-50%);
 }
 .nav__btn.selected > .nav__btn-upper-text {
   transform: translate(5px) skew(10deg);
@@ -252,7 +253,7 @@ section {
   transform: translate(-5px) skew(10deg);
 }
 .nav__btn.selected::after {
-  transform: scale(1);
+  transform: scale(1) translateY(-50%);
 }
 .social-nav-cont {
   align-items: flex-end;
