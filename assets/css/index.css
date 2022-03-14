@@ -214,7 +214,7 @@ section {
   left: 0;
   top: 44%;
   width: 100%;
-  height: 2px;
+  height: 0.05em;
   transform: scale(0);
   transition: transform 200ms ease-in;
   background-color: currentColor;
@@ -286,16 +286,15 @@ section {
   border: 1px solid transparent;
   position: relative;
   transform: rotateY(-50deg);
-  background-color: hsl(var(--white), 0.1);
+  background-color: hsl(var(--blue), 0.5);
   color: var(--clr-accent);
-  backdrop-filter: blur(5px);
   border-radius: 4px;
   transform-style: preserve-3d;
   cursor: pointer;
   transition: transform 200ms ease-in;
 }
 .social-card:hover {
-  transform: none;
+  transform: rotateY(0deg);
 }
 @media (min-width: 769px) {
   .nav {
@@ -312,6 +311,8 @@ section {
     justify-content: flex-start;
   }
   .social-card {
+    background-color: hsl(var(--blue), 0.05);
+    backdrop-filter: blur(5px);
     padding: 0;
     font-size: 1rem;
     width: 30%;
