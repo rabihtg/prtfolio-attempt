@@ -14,14 +14,8 @@ class TxtType {
     let i = this.loopNum % this.loopedText.length;
     let fullTxt = this.loopedText[i];
     if (this.isDeleting) {
-      this.el.classList.remove("typing");
-      this.el.classList.add("deleting");
-
       this.txt = fullTxt.substring(0, this.txt.length - 1);
     } else {
-      this.el.classList.add("typing");
-      this.el.classList.remove("deleting");
-
       this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
@@ -36,10 +30,14 @@ class TxtType {
     if (!this.isDeleting && this.txt === fullTxt) {
       chStep = this.switchPeriod;
       this.isDeleting = true;
+      this.el.classList.add("showing");
     } else if (this.isDeleting && this.txt === "") {
+      this.el.classList.add("showing");
       this.isDeleting = false;
       this.loopNum++;
       chStep = 500;
+    } else {
+      this.el.classList.remove("showing");
     }
     if (!this.paused) {
       this.timeOut = setTimeout(() => {
@@ -47,8 +45,7 @@ class TxtType {
       }, chStep);
     } else {
       this.el.textContent = "";
-      this.el.classList.remove("typing");
-      this.el.classList.remove("deleting");
+      this.el.classList.remove("showing");
       clearTimeout(this.timeOut);
     }
   }

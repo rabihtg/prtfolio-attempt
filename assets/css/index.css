@@ -5,7 +5,7 @@
   --dark-blue: 209, 85%, 11%;
   --very-dark-blue: 199, 87%, 12%;
   --dark-yellow: 35, 78%, 66%;
-  --clr-accent: #fc6d6d;
+  --clr-accent: 0, 96%, 71%;
 
   /* Neurtral */
   --white: 0, 0%, 100%;
@@ -55,7 +55,7 @@ body {
 .no-script-disclaimer {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: hsla(var(--black), 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,8 +109,8 @@ section {
   transition: transform var(--sc-transition) var(--sc-transition)
       cubic-bezier(1, -0.01, 0, 1.47),
     max-height 0s var(--sc-transition) linear;
-  max-height: max(350px, 60vh);
-  height: max(350px, 60vh);
+  max-height: max(400px, 60vh);
+  height: max(400px, 60vh);
 }
 .hidden-section {
   transition: transform var(--sc-transition) cubic-bezier(0.95, -0.75, 0, 1),
@@ -155,7 +155,7 @@ section {
   flex-direction: column;
 }
 .cont {
-  width: 90%;
+  width: 95%;
   margin-inline: auto;
   max-width: 500px;
 }
@@ -212,7 +212,7 @@ section {
   content: "";
   position: absolute;
   left: 0;
-  top: 44%;
+  top: calc(45% - 0.05em);
   width: 100%;
   height: 0.05em;
   transform: scale(0);
@@ -286,8 +286,9 @@ section {
   border: 1px solid transparent;
   position: relative;
   transform: rotateY(-50deg);
-  background-color: hsl(var(--blue), 0.5);
-  color: var(--clr-accent);
+  background-color: hsl(var(--blue), 0.05);
+  backdrop-filter: blur(5px);
+  color: hsl(var(--clr-accent));
   border-radius: 4px;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -311,8 +312,6 @@ section {
     justify-content: flex-start;
   }
   .social-card {
-    background-color: hsl(var(--blue), 0.05);
-    backdrop-filter: blur(5px);
     padding: 0;
     font-size: 1rem;
     width: 30%;
@@ -320,9 +319,14 @@ section {
   }
   .card-link {
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
+  }
+  @media (hover: hover) {
+    .card-link {
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 /* ------------------------------------------------------------ Intro
@@ -399,7 +403,7 @@ section {
   }
 }
 .intro__subtitle {
-  padding: 0 0 0.25rem 0.5rem;
+  /* margin-bottom: 20px; */
   font-size: var(--fs-700);
   font-weight: 300;
   font-variant: small-caps;
@@ -407,40 +411,19 @@ section {
 
   position: relative;
   transform: translateX(100%);
-  display: flex;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.5rem;
   justify-content: center;
 }
 .intro__typing-text {
   user-select: none;
   cursor: text;
-  color: var(--clr-accent);
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  color: hsl(var(--clr-accent));
   letter-spacing: 0.1em;
   font-variant: small-caps;
-  position: relative;
-}
-.intro__typing-text.intro__typing-text.typing::after,
-.intro__typing-text.intro__typing-text.deleting::after {
-  content: "";
-  position: absolute;
-  width: 0.075em;
-  height: 100%;
-
-  background-color: var(--clr-accent);
-  right: -0.05em;
-}
-.intro__typing-text.typing::after {
-  animation-name: cursor;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: forwards;
-  animation-duration: 400ms;
-}
-@keyframes cursor {
-  to {
-    opacity: 0;
-  }
 }
 .intro__subtitle.animation {
   animation: slide-in 1s var(--animation-delay) cubic-bezier(0.15, 1.5, 0, 1)
@@ -451,7 +434,7 @@ section {
     transform: translateX(70%);
   }
   100% {
-    transform: none;
+    transform: translateX(0);
   }
 }
 .intro__languages-slider-cont {
@@ -538,7 +521,35 @@ section {
     border-bottom: 2px double hsl(var(--blue));
   }
   .intro__subtitle {
+    padding: 0 0 0.25rem 0.5rem;
     justify-content: flex-start;
+  }
+  .intro__typing-text {
+    position: relative;
+    width: unset;
+  }
+  .intro__typing-text::after {
+    content: "";
+    position: absolute;
+    width: 0.075em;
+    height: 100%;
+    top: 0;
+    right: -0.1em;
+    opacity: 0;
+    background-color: hsl(var(--clr-accent));
+    animation-name: cursor;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: forwards;
+    animation-duration: 400ms;
+  }
+  .intro__typing-text.intro__typing-text.showing::after {
+    opacity: 1;
+  }
+  @keyframes cursor {
+    to {
+      opacity: 0;
+    }
   }
 }
 /* ------------------------------------------------------------ About
