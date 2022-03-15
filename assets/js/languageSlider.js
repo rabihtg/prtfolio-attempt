@@ -1,4 +1,4 @@
-const languageSlider = document.querySelector(".intro__languages-slider-cont"),
+const languageSlider = document.querySelector(".home__languages-slider-cont"),
   languages = document.querySelectorAll(".language"),
   nbOfLang = languages.length,
   langSliderGap = 16;

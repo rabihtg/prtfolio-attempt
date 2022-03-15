@@ -1,5 +1,6 @@
 "use strict";
 const animatedElms = document.querySelectorAll("[data-animated='true'");
+const homeSection = document.querySelector("#home");
 import { startDragSlider } from "./languageSlider.js";
 import { sectionSwitcher } from "./change-section.js";
 import { startTxtType } from "./typing-txt-animator.js";
@@ -9,7 +10,9 @@ window.addEventListener("load", () => {
   });
   startDragSlider();
   window.setTimeout(() => {
-    startTxtType();
+    if (!homeSection.classList.contains("hidden-section")) {
+      startTxtType();
+    }
     sectionSwitcher();
   }, 3000);
 });
