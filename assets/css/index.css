@@ -531,22 +531,17 @@ section {
   .intro__typing-text::after {
     content: "";
     position: absolute;
-    width: 0.075em;
-    height: 100%;
-    top: 0;
-    right: -0.1em;
-    opacity: 0;
-    background-color: hsl(var(--clr-accent));
-    animation-name: cursor;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: forwards;
-    animation-duration: 400ms;
+    inset: 0 -0.075em 0 0;
+    background: transparent;
+    border-right: 0.075em solid hsl(var(--clr-accent));
   }
-  .intro__typing-text.intro__typing-text.showing::after {
-    opacity: 1;
+  .intro__typing-text.typing::after {
+    animation: cursor-typing 500ms linear 0s infinite forwards;
   }
-  @keyframes cursor {
+  .intro__typing-text.deleting::after {
+    animation: none !important;
+  }
+  @keyframes cursor-typing {
     to {
       opacity: 0;
     }
