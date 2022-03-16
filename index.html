@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/c18ac3383c.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/css/index.css" />
     <title>Rabih Harb - Portfolio</title>
   </head>
@@ -146,32 +150,26 @@
           </div>
         </div>
       </section>
-      <section class="about cont hidden-section" id="about">
-        <div class="about__equation">
-          <h1 class="about__icon">
+      <section class="about flex-col cont hidden-section" id="about">
+        <div class="about__equation flex-col">
+          <h1 class="about__equation-icon about__icon">
             <i class="fas fa-info-circle"></i>
           </h1>
-          <h2 class="about-title section-title">My Equation</h2>
-          <p class="about-text">
+          <p class="about__equation-desc flex-col">
             Self-motivated fresh graduate with a bachelor's degree in Computer
             Science.
-            <br />
-            <span style="font-size: 2rem; font-weight: 900">+</span>
-            <br />
+            <span class="about__equation-add-symb">+</span>
             Gained certificates in both Web Development and Python Programming
             Language.
-            <br />
-            <span style="font-size: 2rem; font-weight: 100">**</span>
-            <br />
+            <span class="about__equation-multiply-symb">**</span>
             Daily Practice
           </p>
         </div>
-        <div class="skills-cont section-cont">
-          <h1 class="skills-icon icon-cont">
-            <i class="fas fa-laptop-code"></i>
+        <div class="about__skills flex-col">
+          <h1 class="about__skills-icon">
+            <i class="fas fa-laptop-code about__icon"></i>
           </h1>
-          <h2 class="skills-title section-title">Ingredients</h2>
-          <div class="flex-skills-cont">
+          <div class="about__skills-wrapper flex">
             <div class="skill-item">
               <span class="key">HTML</span>
               <span class="value">
@@ -239,7 +237,7 @@
               </span>
             </div>
             <div class="skill-item">
-              <span class="key">The CLI</span>
+              <span class="key">CLI</span>
               <span class="value">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -253,7 +251,7 @@
               </span>
             </div>
             <div class="skill-item">
-              <span class="key">React</span>
+              <span class="key">ReactJs</span>
               <span class="value">
                 <i class="fas fa-star"></i>
               </span>
