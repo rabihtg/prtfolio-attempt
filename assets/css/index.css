@@ -60,6 +60,8 @@ body {
     );
   font-family: var(--ff-sans);
   background-size: auto, contain, 400% 400%;
+}
+body.animation {
   animation: gradient-shift 3s ease-out 0s 1 forwards;
 }
 @keyframes gradient-shift {
@@ -96,7 +98,7 @@ body {
 main {
   --animation-initial-delay: 500ms;
   --animation-delay: calc(var(--animation-initial-delay) + 500ms);
-  padding-block: 2rem;
+  padding-block: 0 4rem;
   overflow: hidden;
   height: 100%;
 }
@@ -151,7 +153,7 @@ section {
 }
 @media (min-width: 769px) {
   main {
-    padding-block: 1rem;
+    padding-block: 0 2rem;
   }
   section {
     max-height: max(500px, 80vh);
@@ -370,6 +372,7 @@ section {
 -------------------------------------------------------------------------------------------- */
 .home-cont {
   display: grid;
+  padding-block: 2rem 0;
   row-gap: 1rem;
   grid-template-areas:
     "title"
@@ -588,8 +591,10 @@ section {
   overflow: auto;
   text-align: center;
   margin-bottom: 2rem;
-  -webkit-overflow-scrolling: none;
-  -ms-overflow-style: none;
+
+  /* Firefox */
+  scrollbar-color: hsl(var(--blue)) transparent;
+  scrollbar-width: thin;
 }
 .about::-webkit-scrollbar {
   width: 0.75em;
@@ -606,6 +611,9 @@ section {
 .about::-webkit-scrollbar-track {
   background: transparent;
 }
+.about:hover {
+  scrollbar-color: hsl(var(--blue)) hsl(var(--dark-blue));
+}
 .about:hover::-webkit-scrollbar-track {
   background: hsl(var(--dark-blue));
 }
@@ -620,11 +628,11 @@ section {
 }
 .about__icon {
   font-size: var(--fs-900);
-  color: hsla(var(--dark-yellow));
+  color: hsla(var(--clr-accent));
   line-height: 1;
 }
 .about__equation-desc {
-  color: hsla(var(--clr-accent), 0.85);
+  color: hsla(var(--dark-yellow), 0.85);
   font-weight: 400;
   font-size: var(--fs-300);
   align-items: center;
@@ -637,11 +645,6 @@ section {
 .about__skills {
   align-items: center;
   gap: 1.5rem;
-}
-.about__skills-title {
-  font-size: var(--fs-800);
-  font-weight: 700;
-  color: hsla(var(--dark-yellow));
 }
 .about__skills-wrapper {
   font-size: var(--fs-300);
@@ -662,11 +665,11 @@ section {
   top: 0;
   width: fit-content;
   height: 100%;
-  color: hsl(var(--dark-yellow));
+  color: hsl(var(--clr-accent));
   z-index: -1;
 }
 .skill-item > .key {
-  color: hsla(var(--clr-accent), 0.85);
+  color: hsla(var(--dark-yellow), 0.85);
 }
 .skill-item > .value {
   cursor: pointer;
