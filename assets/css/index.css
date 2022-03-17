@@ -286,7 +286,7 @@ section {
   width: 100%;
   gap: 0;
   perspective: 50em;
-  transform: rotateY(90deg) scale(10);
+  transform: rotateY(90deg) scale(2);
 }
 .social-cards.animation {
   animation: rotate-in 500ms calc(var(--animation-delay) + 1s) forwards;
@@ -655,10 +655,10 @@ section {
   gap: 1rem;
   position: relative;
 }
-.skill-item::after {
+.skill-item:not(:first-of-type)::after {
   content: "/";
   position: absolute;
-  left: 100%;
+  right: 100%;
   top: 0;
   width: fit-content;
   height: 100%;
