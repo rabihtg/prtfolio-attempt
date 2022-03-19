@@ -21,7 +21,7 @@ export let data = {
     title: "Team Managment Homepage",
     href: "mng-lndn-pg",
     imgSrc: "mng-lndn-pg.png",
-    desc: "home page for team managing solutions with testimnials slider and email validator.",
+    desc: "team managing solutions with testimnials slider & email validator.",
   },
   4: {
     title: "Chat App Illustration",
@@ -63,7 +63,7 @@ export let data = {
     title: "Loopstudios VR Co. Homepage",
     href: "loops-pg",
     imgSrc: "loop-studios.png",
-    desc: "responsive modern design with collapsing creation section.",
+    desc: "responsive design with collapsing creation section.",
   },
   12: {
     title: "Blogr Homepage",
