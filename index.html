@@ -15,6 +15,11 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./assets/css/index.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/front-end-mentor.png"
+      type="image/x-icon"
+    />
     <title>Rabih Harb - Portfolio</title>
   </head>
   <body data-animated="true">
@@ -29,7 +34,7 @@
       </div>
     </noscript>
     <main>
-      <section class="home" id="home">
+      <section class="home hidden-section" id="home">
         <div class="cont home-cont">
           <div class="home__intro-text flex-col" data-animated="true">
             <h1 class="home__intro-title">
@@ -150,128 +155,67 @@
           </div>
         </div>
       </section>
-      <section class="about flex-col cont hidden-section" id="about">
-        <div class="about__equation flex-col">
-          <h1 class="about__equation-icon about__icon">
-            <i class="fas fa-info-circle"></i>
-          </h1>
-          <p class="about__equation-desc flex-col">
-            Self-motivated fresh graduate with a bachelor's degree in Computer
-            Science.
-            <span class="about__equation-add-symb">+</span>
-            Gained certificates in both Web Development and Python Programming
-            Language.
-            <span class="about__equation-multiply-symb">**</span>
-            Daily Practice
-          </p>
-        </div>
-        <div class="about__skills flex-col">
-          <h1 class="about__skills-icon">
-            <i class="fas fa-laptop-code about__icon"></i>
-          </h1>
-          <div class="about__skills-wrapper flex">
-            <div class="skill-item">
-              <span class="key">HTML</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
+      <section class="work cont" id="work">
+        <div class="work__gallery">
+          <!-- <div class="gallery-item">
+            <a
+              href="https://advc-gnrtr.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./assets/images/api_based-webApp.png"
+                alt="api_based-webApp"
+                class="gallery-item-img"
+              />
+            </a>
+            <div class="gallery-item-txt-cont">
+              <h3 class="gallery-item-title">API Based WebApp</h3>
+              <p class="gallery-item-desc">
+                random advice generator using the advice generator api.
+              </p>
             </div>
-            <div class="skill-item">
-              <span class="key">CSS</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">JS</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">Python</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">JQuery</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">Fast-Typing</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">OOP</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">Git</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">CLI</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">Relational DB</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">ReactJs</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">Java</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-              </span>
-            </div>
-            <div class="skill-item">
-              <span class="key">C#</span>
-              <span class="value">
-                <i class="fas fa-star"></i>
-              </span>
+          </div> -->
+          <!-- <div class="gallery-item">
+            <a
+              href="https://ecmrc-prdct-pg.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./assets/images/e-commerce-pg-wth-slider.png"
+                alt="E-commerce page with a slider"
+                class="gallery-item-img"
+              />
+            </a>
+            <div class="gallery-item-txt-cont">
+              <h3 class="gallery-item-title">E-commerce page with a slider</h3>
+              <p class="gallery-item-desc">
+                responsive page design with slider and lightbox.
+              </p>
             </div>
           </div>
+          <div class="gallery-item">
+            <a
+              href="https://esbnk-lndng-pg.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./assets/images/easy-bnk-lnd-pg.png"
+                alt="responsive banking solution webpage design"
+                class="gallery-item-img"
+              />
+            </a>
+            <div class="gallery-item-txt-cont">
+              <h3 class="gallery-item-title">Banking Solution Web Page</h3>
+              <p class="gallery-item-desc">
+                home page for banking solutions co. with articles section.
+              </p>
+            </div>
+          </div> -->
         </div>
       </section>
-      <section class="work hidden-section" id="work"></section>
       <section class="contact hidden-section" id="contact"></section>
       <div class="social-nav-cont flex-alt cont">
         <nav class="nav">
@@ -284,15 +228,6 @@
               <span class="nav__btn-text">HOME</span>
               <span class="nav__btn-upper-text">HOME</span>
               <span class="nav__btn-lower-text">HOME</span>
-            </button>
-            <button
-              class="nav__btn"
-              data-section-id="#about"
-              data-animated="true"
-            >
-              <span class="nav__btn-text">ABOUT</span>
-              <span class="nav__btn-upper-text">ABOUT</span>
-              <span class="nav__btn-lower-text">ABOUT</span>
             </button>
             <button
               class="nav__btn"
@@ -348,3 +283,125 @@
     <script src="./assets/js/script.js" type="module"></script>
   </body>
 </html>
+
+<!-- <section class="about flex-col cont hidden-section" id="about">
+  <div class="about__equation flex-col">
+    <h1 class="about__equation-icon about__icon">
+      <i class="fas fa-info-circle"></i>
+    </h1>
+    <p class="about__equation-desc flex-col">
+      Self-motivated fresh graduate with a bachelor's degree in Computer
+      Science.
+      <span class="about__equation-add-symb">+</span>
+      Gained certificates in both Web Development and Python Programming
+      Language.
+      <span class="about__equation-multiply-symb">**</span>
+      Daily Practice
+    </p>
+  </div>
+  <div class="about__skills flex-col">
+    <h1 class="about__skills-icon">
+      <i class="fas fa-laptop-code about__icon"></i>
+    </h1>
+    <div class="about__skills-wrapper flex">
+      <div class="skill-item">
+        <span class="key">HTML</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">CSS</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">JS</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">Python</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">JQuery</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">Fast-Typing</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">OOP</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">Git</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">CLI</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">Relational DB</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">ReactJs</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">Java</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+      <div class="skill-item">
+        <span class="key">C#</span>
+        <span class="value">
+          <i class="fas fa-star"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</section> -->
