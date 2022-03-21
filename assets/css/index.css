@@ -290,6 +290,7 @@ section {
   width: 100%;
   gap: 0;
   perspective: 50em;
+  transform-style: flat;
   transform: rotateY(90deg) scale(2);
 }
 .social-cards.animation {
@@ -311,14 +312,21 @@ section {
   aspect-ratio: 1 / 0.5;
   border: 1px solid transparent;
   position: relative;
-  transform: rotateY(-50deg);
   background-color: hsl(var(--blue), 0.25) !important;
   color: hsl(var(--clr-accent));
   border-radius: 4px;
-  transform-style: preserve-3d;
   cursor: pointer;
   transition: transform 200ms ease-in;
   background-size: min(17%, 24px) !important;
+}
+.social-card:nth-of-type(1) {
+  transform: rotateY(-50deg);
+}
+.social-card:nth-of-type(2) {
+  transform: rotateY(-60deg);
+}
+.social-card:nth-of-type(3) {
+  transform: rotateY(-70deg);
 }
 .social-card.linked-in {
   background: url(../images/linkedin.png) no-repeat;
@@ -356,6 +364,7 @@ section {
     max-width: 150px;
   }
   .card-link {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -683,6 +692,7 @@ section {
   display: grid;
   grid-auto-flow: column;
   height: 100%;
+  padding: 0.25rem;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(5, 40%);
   row-gap: 3%;
@@ -692,12 +702,19 @@ section {
   scrollbar-color: hsl(var(--blue)) transparent;
   scrollbar-width: thin;
 }
+/* .work__gallery.scrolling {
+  cursor: grabbing;
+} */
 .gallery-item {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
   border-radius: 0.1rem;
+}
+.gallery-item:focus-within {
+  opacity: 0.25;
+  outline: 2px solid hsl(var(--light-gray));
 }
 .gallery-item-img {
   user-select: none;
@@ -736,8 +753,12 @@ section {
   transform: scale(1.05);
 }
 @media (hover: hover) {
+  .work__gallery {
+    position: relative;
+    cursor: grab;
+  }
   .work__gallery::-webkit-scrollbar {
-    height: 1em;
+    height: 2rem;
   }
   .work__gallery::-webkit-scrollbar-thumb {
     background: linear-gradient(
@@ -757,25 +778,24 @@ section {
   .work__gallery:hover::-webkit-scrollbar-track {
     background: linear-gradient(
       to bottom,
-      transparent 20%,
-      hsl(var(--dark-blue)) 20%,
-      hsl(var(--dark-blue)) 80%,
-      transparent 80%
+      transparent 25%,
+      hsl(var(--dark-blue)) 25%,
+      hsl(var(--dark-blue)) 75%,
+      transparent 75%
     );
   }
   .work__gallery:hover::-webkit-scrollbar-thumb {
     background: linear-gradient(
       to bottom,
-      transparent 20%,
-      hsl(var(--blue)) 20%,
-      hsl(var(--blue)) 80%,
-      transparent 80%
+      transparent 25%,
+      hsl(var(--blue)) 25%,
+      hsl(var(--blue)) 75%,
+      transparent 75%
     );
   }
 }
 @media (min-width: 769px) {
   .work__gallery {
-    cursor: grab;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: repeat(7, 25%);
   }
@@ -786,7 +806,7 @@ section {
   }
   .gallery-item-desc {
     display: block;
-    color: hsl(var(--light-gray));
+    color: hsl(var(--light-gray), 0.85);
     font-weight: 300;
     font-size: var(--fs-200);
   }
