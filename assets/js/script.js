@@ -1,10 +1,6 @@
 // Todo - user-select: none on gallery-item txt (mobile-devices).
 // Todo - add functionality to see all in loopstudio website.
-// Todo - make home page loading page..add functionality to check selected page and link selected btn acconrdingly.
-// Todo - fix font-size for gallery-item txt.
 // Todo - re-order gallery-item.js data.
-// Todo - check section height code.
-// Todo - Fix row & col trace in galleryLoader !important caught bug.
 
 "use strict";
 const animatedElms = document.querySelectorAll("[data-animated='true'");

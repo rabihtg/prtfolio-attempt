@@ -4,12 +4,17 @@ let galleryItemAnchors,
   // Flipped because of grid-auto-flow: column;
   nbOfCol = 3,
   nbOfRow = 7,
-  resetIndex = 20,
   currentAnchorIndex = 0,
-  galleryContCoor = {
-    left: 0,
-    x: 0,
-  };
+  col = 0,
+  row = 0,
+  minWidth = 769,
+  emptySquare = [6, 2];
+
+function setWidthBoundVar() {
+  if (window.innerWidth < minWidth) {
+    (nbOfCol = 4), (nbOfRow = 5), (emptySquare = undefined);
+  }
+}
 
 export { galleryLoader, galleryKeyNavigator, gallerySlider };
 import { data } from "../gallery_items.js";
@@ -36,6 +41,7 @@ function galleryLoader() {
     itemImg.setAttribute("src", src);
     itemImg.setAttribute("class", "gallery-item-img");
     itemImg.setAttribute("alt", data[item].title);
+    itemImg.setAttribute("loading", "lazy");
 
     textCont.setAttribute("class", "gallery-item-txt-cont");
 
@@ -55,59 +61,87 @@ function galleryLoader() {
   const firsAnchor = document.querySelector(".gallery-item:first-of-type > a");
   galleryItemAnchors = document.querySelectorAll(".gallery-item > a");
   firsAnchor.setAttribute("tabindex", "0");
+  setWidthBoundVar();
 }
 
 function galleryKeyNavigator() {
-  window.addEventListener("resize", () => {
-    if (window.innerWidth < 769) {
-      nbOfRow = 5;
-      nbOfCol = 4;
-    } else {
-      nbOfRow = 3;
-      nbOfCol = 7;
-      resetIndex = 20;
-    }
-  });
-  let col = 0,
-    row = 0;
+  window.addEventListener("resize", resetWidthBoudnVar);
   galleryCont.addEventListener("keydown", (e) => {
     switch (e.key) {
       case "ArrowRight":
         row += 1;
-        if (row > resetIndex) {
+        if (row == nbOfRow) {
           row = 0;
+          col += 1;
+          col %= nbOfCol;
+        }
+        if (emptySquare) {
+          if (row == emptySquare[0] && col == emptySquare[1]) {
+            col = 0;
+            row = 0;
+          }
         }
         break;
       case "ArrowLeft":
         row -= 1;
         if (row < 0) {
-          row = galleryItemAnchors.length - 1;
+          col -= 1;
+          if (col < 0) {
+            if (emptySquare) {
+              [row, col] = emptySquare;
+              row -= 1;
+            } else {
+              row = nbOfRow - 1;
+              col = nbOfCol - 1;
+            }
+          } else {
+            row = nbOfRow - 1;
+            col = (nbOfCol + col) % nbOfCol;
+          }
         }
         break;
       case "ArrowDown":
         col += 1;
-        if (col > resetIndex) {
+        if (col == nbOfCol) {
           col = 0;
+          row += 1;
+          row %= nbOfRow;
+        }
+        if (emptySquare) {
+          if (row == emptySquare[0] && col == emptySquare[1]) {
+            col = 0;
+            row = 0;
+          }
         }
         break;
       case "ArrowUp":
         col -= 1;
         if (col < 0) {
-          col = galleryItemAnchors.length - 1;
+          row -= 1;
+          if (row < 0) {
+            if (emptySquare) {
+              [row, col] = emptySquare;
+              col -= 1;
+            } else {
+              row = nbOfRow - 1;
+              col = nbOfCol - 1;
+            }
+          } else {
+            col = nbOfCol - 1;
+            row = (nbOfRow + row) % nbOfRow;
+          }
         }
         break;
     }
-    if (e.key != "Enter" && e.key != "Tab") {
+    if (e.key != "Enter" && e.key != "Tab" && e.key != "F5") {
       e.preventDefault();
     }
-    currentAnchorIndex = (nbOfCol * row + col) % (nbOfCol * nbOfRow - 1);
-    galleryItemAnchors[currentAnchorIndex].focus();
-    console.log(row, col, currentAnchorIndex);
+    currentAnchorIndex = row * nbOfCol + col;
     document
       .querySelector(".gallery-item > a[tabindex='0']")
       .setAttribute("tabindex", "-1");
     galleryItemAnchors[currentAnchorIndex].setAttribute("tabindex", "0");
-
+    galleryItemAnchors[currentAnchorIndex].focus();
     galleryItemAnchors[currentAnchorIndex].scrollIntoView({
       inline: "center",
       block: "center",
@@ -122,4 +156,24 @@ function gallerySlider() {
 function mouseWheelHandler(e) {
   e.preventDefault();
   galleryCont.scrollLeft -= e.deltaY;
+}
+function resetWidthBoudnVar() {
+  if (window.innerWidth < minWidth) {
+    nbOfRow = 5;
+    nbOfCol = 4;
+    col = 0;
+    row = 0;
+    emptySquare = undefined;
+  } else {
+    nbOfRow = 7;
+    nbOfCol = 3;
+    col = 0;
+    row = 0;
+    emptySquare = [6, 2];
+    document.querySelector(".gallery-item > a[tabindex='0']").blur();
+    document
+      .querySelector(".gallery-item > a[tabindex='0']")
+      .setAttribute("tabindex", "-1");
+    galleryItemAnchors[0].setAttribute("tabindex", "0");
+  }
 }

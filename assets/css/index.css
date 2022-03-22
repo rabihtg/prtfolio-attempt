@@ -706,6 +706,7 @@ section {
   cursor: grabbing;
 } */
 .gallery-item {
+  background-color: hsl(var(--black), 0.5);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -713,9 +714,12 @@ section {
   border-radius: 0.1rem;
 }
 .gallery-item:focus-within {
-  opacity: 0.25;
   outline: 2px solid hsl(var(--light-gray));
 }
+.gallery-item:focus-within img {
+  opacity: 0.25;
+}
+
 .gallery-item-img {
   user-select: none;
   cursor: pointer;
@@ -749,7 +753,8 @@ section {
 .gallery-item-desc {
   display: none;
 }
-.gallery-item:hover > .gallery-item-txt-cont {
+.gallery-item:hover > .gallery-item-txt-cont,
+.gallery-item:focus-within > .gallery-item-txt-cont {
   transform: scale(1.05);
 }
 @media (hover: hover) {
