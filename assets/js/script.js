@@ -1,6 +1,4 @@
-// Todo - user-select: none on gallery-item txt (mobile-devices).
 // Todo - add functionality to see all in loopstudio website.
-// Todo - re-order gallery-item.js data.
 
 "use strict";
 const animatedElms = document.querySelectorAll("[data-animated='true'");

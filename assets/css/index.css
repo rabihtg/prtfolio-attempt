@@ -149,7 +149,12 @@ section {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  }
+  .animation {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 @media (min-width: 769px) {
@@ -159,7 +164,6 @@ section {
   section {
     max-height: max(500px, 75vh);
     height: max(500px, 75vh);
-    /* margin-bottom: 0.5em; */
   }
 }
 
@@ -595,97 +599,6 @@ section {
     }
   }
 }
-/* ------------------------------------------------------------ About
--------------------------------------------------------------------------------------------- */
-/* .about {
-  gap: 2rem;
-  overflow: auto;
-  text-align: center;
-  margin-bottom: 2rem;
-
-  scrollbar-color: hsl(var(--blue)) transparent;
-  scrollbar-width: thin;
-}
-.about::-webkit-scrollbar {
-  width: 0.75em;
-}
-.about::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to right,
-    transparent 30%,
-    hsl(var(--blue)) 30%,
-    hsl(var(--blue)) 70%,
-    transparent 70%
-  );
-}
-.about::-webkit-scrollbar-track {
-  background: transparent;
-}
-.about:hover {
-  scrollbar-color: hsl(var(--blue)) hsl(var(--dark-blue));
-}
-.about:hover::-webkit-scrollbar-track {
-  background: hsl(var(--dark-blue));
-}
-.about:hover::-webkit-scrollbar-thumb {
-  background: hsl(var(--blue));
-}
-.about__equation {
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-block: 6.25vh;
-}
-.about__icon {
-  font-size: var(--fs-900);
-  color: hsla(var(--clr-accent));
-  line-height: 1;
-}
-.about__equation-desc {
-  color: hsla(var(--dark-yellow), 0.85);
-  font-weight: 400;
-  font-size: var(--fs-300);
-  align-items: center;
-}
-.about__equation-add-symb,
-.about__equation-multiply-symb {
-  color: hsl(var(--blue));
-  font-size: var(--fs-800);
-}
-.about__skills {
-  align-items: center;
-  gap: 1.5rem;
-}
-.about__skills-wrapper {
-  font-size: var(--fs-300);
-  flex-wrap: wrap;
-  max-width: 500px;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.skill-item {
-  display: flex;
-  gap: 1rem;
-  position: relative;
-}
-.skill-item:not(:first-of-type)::after {
-  content: "/";
-  position: absolute;
-  right: 100%;
-  top: 0;
-  width: fit-content;
-  height: 100%;
-  color: hsl(var(--clr-accent));
-  z-index: -1;
-}
-.skill-item > .key {
-  color: hsla(var(--dark-yellow), 0.85);
-}
-.skill-item > .value {
-  cursor: pointer;
-  user-select: none;
-  color: hsla(var(--blue));
-} */
 /* ------------------------------------------------------------ Work
 -------------------------------------------------------------------------------------------- */
 .work__gallery {
@@ -702,9 +615,6 @@ section {
   scrollbar-color: hsl(var(--blue)) transparent;
   scrollbar-width: thin;
 }
-/* .work__gallery.scrolling {
-  cursor: grabbing;
-} */
 .gallery-item {
   background-color: hsl(var(--black), 0.5);
   position: relative;
@@ -728,10 +638,6 @@ section {
   width: 100%;
   object-fit: cover;
   object-position: center center;
-  /* height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center center; */
 }
 .gallery-item-txt-cont {
   position: absolute;
